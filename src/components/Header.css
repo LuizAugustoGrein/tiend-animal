@@ -1,0 +1,13 @@
+.Header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    background-color: #eee;
+}
+
+.HeaderIcon {
+    font-size: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
