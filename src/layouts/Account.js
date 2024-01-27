@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import "./Account.css";
 
@@ -63,6 +65,8 @@ export default function Account () {
         localStorage.setItem('name', formName);
         localStorage.setItem('email', formEmail);
         localStorage.setItem('phone', formPhone);
+
+        toast("¡Guardado exitosamente!")
     }
 
     return (
@@ -71,6 +75,7 @@ export default function Account () {
             <TextInput label={'Email'} id={'email'} value={formEmail} setValue={setFormEmail} correct={emailCorrect} />
             <TextInput label={'Teléfono'} id={'phone'} value={formPhone} setValue={setFormPhone} correct={phoneCorrect} />
             <Button label={'Guardar'} enabled={formCorrect} action={action}></Button>
+            <ToastContainer />
         </div>
     )
 }

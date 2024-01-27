@@ -4,7 +4,7 @@ import "./Content.css";
 import AccountContext from '../contexts/AccountContext';
 
 import Account from './Account';
-import Tasks from './Account';
+import Tasks from './Tasks';
 
 export default function Content () {
     const { section, setSection, menuList } = useContext(AccountContext);
