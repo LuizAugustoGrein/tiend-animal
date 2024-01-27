@@ -1,0 +1,9 @@
+.container {
+    padding: 20px;
+    flex-grow: 1;
+    background-color: rgb(244, 244, 244);
+}
+
+.container h3 {
+    color: #555555;
+}

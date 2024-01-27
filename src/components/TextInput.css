@@ -1,0 +1,24 @@
+
+.text-input-label {
+    display: block;
+    font-size: 14px;
+    color: #555555;
+    padding: 10px 0;
+}
+
+.required-input-label {
+    color: #9F1F1F;
+}
+
+.text-input {
+    height: 38px;
+    border: 1px solid #C9C9C9;
+    width: calc(100% - 20px);
+    padding-left: 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.error-input {
+    border: 1px solid red;
+}
