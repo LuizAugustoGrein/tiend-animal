@@ -23,3 +23,7 @@
 .modal-title {
     margin-top: 0;
 }
+
+.disabled-btn {
+    background-color: #9fb07f;
+}
