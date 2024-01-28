@@ -1,9 +1,12 @@
 import React, { createContext, useState } from 'react';
+import axios from 'axios';
 
 const AccountContext = createContext();
 
 export const AccountContextProvider = ({ children }) => {
     const [section, setSection] = useState(0);
+
+    const [tasks, setTasks] = useState([]);
 
     const menuList = [
         { id: 1, name: 'Mis datos' },
@@ -13,10 +16,19 @@ export const AccountContextProvider = ({ children }) => {
         { id: 5, name: 'Mis mejores amigos' }
     ];
 
+    const updateTasks = () => {
+        axios.get('http://localhost:3333/tasks')
+        .then(response => {
+            setTasks(response.data.tasks);
+        });
+    }
+
     const contextValue = {
       section,
       setSection,
-      menuList
+      menuList,
+      tasks,
+      updateTasks
     }
 
     return (

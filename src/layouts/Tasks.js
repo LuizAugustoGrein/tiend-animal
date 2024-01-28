@@ -1,22 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import TaskItem from "../components/TaskItem";
 import AddTaskModal from "../components/AddTaskModal";
 
+import AccountContext from '../contexts/AccountContext';
+
 export default function Tasks () {
 
+    const { tasks, updateTasks } = useContext(AccountContext);
+
     useEffect(() => {
-        
+        updateTasks();
     }, []);
 
     return (
         <div>
-            <TaskItem title={'Titulo tarea'} description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris, ac elementum ultrices mauris. Cursus urna vehicula nisi aliquam pulvinar sit interdum eget ac. Rhoncus et nunc, aliquam, ac faucibus odio porta diam lorem. Dictum amet malesuada dictum tristique sollicitudin sed sagittis.'}></TaskItem>
-            <TaskItem title={'Titulo tarea'} description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris, ac elementum ultrices mauris. Cursus urna vehicula nisi aliquam pulvinar sit interdum eget ac. Rhoncus et nunc, aliquam, ac faucibus odio porta diam lorem. Dictum amet malesuada dictum tristique sollicitudin sed sagittis.'}></TaskItem>
-            <TaskItem title={'Titulo tarea'} description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris, ac elementum ultrices mauris. Cursus urna vehicula nisi aliquam pulvinar sit interdum eget ac. Rhoncus et nunc, aliquam, ac faucibus odio porta diam lorem. Dictum amet malesuada dictum tristique sollicitudin sed sagittis.'}></TaskItem>
-
+            {tasks.map((item) => (
+                <TaskItem key={item.id} id={item.id} title={item.name} description={item.description}></TaskItem>
+            ))}
             <AddTaskModal></AddTaskModal>
             
             <ToastContainer />
